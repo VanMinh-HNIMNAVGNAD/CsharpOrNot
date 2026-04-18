@@ -9,32 +9,20 @@ class Lasagna
     }
 
     // TODO: define the 'RemainingMinutesInOven()' method
-    public int RemainingMinutesInOven(int remaining)
+    public int RemainingMinutesInOven(int actual)
     {
-        return ExpectedMinutesInOven() - remaining;
+        return ExpectedMinutesInOven() - actual;
     }
     // TODO: define the 'PreparationTimeInMinutes()' method
 
-    public int PreparationTimeInMinutes(int numberoflayer)
+    public int PreparationTimeInMinutes(int layer)
     {
-        return numberoflayer * 2;        
+        return layer * 2;        
     }
 
     // TODO: define the 'ElapsedTimeInMinutes()' method
-    public int ElapsedTimeInMinutes(int numberoflayer, int remaining)
+    public int ElapsedTimeInMinutes(int layer, int actual)
     {
-        return PreparationTimeInMinutes(numberoflayer) + remaining;
-    }
-
-    static void Main()
-    {
-        var Lasagna = new Lasagna();
-        int timetoremaining = Lasagna.RemainingMinutesInOven(30);
-        int timetoprepare = Lasagna.PreparationTimeInMinutes(2);
-        int total = Lasagna.ElapsedTimeInMinutes(3, 20);
-
-        Console.WriteLine(timetoremaining);
-        Console.WriteLine(timetoprepare);
-        Console.WriteLine(total);
+        return PreparationTimeInMinutes(layer) + actual;
     }
 }
