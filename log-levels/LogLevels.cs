@@ -9,16 +9,15 @@ static class LogLine
 
     public static string LogLevel(string logLine)
     {
-        int indx = logLine.IndexOf(":");
-        string afterhc = logLine.Substring(indx + 2);
-        int indx2 = logLine.IndexOf("/r");
-        string space = logLine.Substring(indx2 + 1);
-        return space.Trim().ToLower();
+        int st = logLine.IndexOf('[') + 1;
+        int ed = logLine.IndexOf(']');
+        return logLine.Substring(st, ed - st).ToLower();
+
     }
 
     public static string Reformat(string logLine)
     {
-
+        return $"{Message(LogLine)} ({LogLevel(logLine)})";
     }
 
 }
