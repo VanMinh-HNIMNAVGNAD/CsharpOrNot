@@ -15,17 +15,19 @@ public static class LogAnalysis
         int contentidx = leftidx + stdelimiter.Length;
         int rightidx = eddelimiter.IndexOf(contentidx["]"]);
         int leth = rightidx - contentidx;
-        
-         
+        int result = str[contentidx, leth];
+        return result;
     }
     // TODO: define the 'Message()' extension method on the `string` type
     public static string Message(this string str)
     {
-        
+        int message = str.SubstringAfter(": ");
+        return message;
     }
     // TODO: define the 'LogLevel()' extension method on the `string` type
     public static string LogLevel(this string str)
     {
-        
+        int loglevel = SubstringBetween(str, "[", "]");
+        return loglevel.ToLower();
     }
 }
